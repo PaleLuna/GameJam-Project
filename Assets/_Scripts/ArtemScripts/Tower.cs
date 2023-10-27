@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ArtemYakubovich
 {
@@ -40,6 +41,10 @@ namespace ArtemYakubovich
                 {
                     _isFindPlace = false;
                 }
+            }
+            else if(_towerState == TowerState.Active)
+            {
+                
             }
         }
 
