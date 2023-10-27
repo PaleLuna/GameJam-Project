@@ -3,25 +3,23 @@ using UnityEngine.SceneManagement;
 
 namespace ArtemYakubovich
 {
-    public class CameraController : MonoBehaviour
+    public class CameraController : MonoBehaviour, IStartable, IUpdatable
     {
         [SerializeField] private int _loadScene; 
-        
-        private Camera _camera;
-        private Vector3 _worldPointPos;
+        [SerializeField] private Camera _camera;
         [SerializeField] private LayerMask _layerMaskCurrent;
-
-        public Vector3 GetMousePos()
-        {
-            return _worldPointPos;
-        }
         
-        private void Start()
+        private Vector3 _worldPointPos;
+
+
+
+        public void OnStart()
         {
-            _camera = GetComponent<Camera>();
+            ServiceLocator.Instance.Registarion(this);
+            ServiceLocator.Instance.Get<GameController>().updatablesHolder.Registration(this);
         }
 
-        private void Update()
+        public void EveryFrameRun()
         {
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -31,11 +29,13 @@ namespace ArtemYakubovich
                 _worldPointPos = hit.point;
             }
         }
-
-        public void LoadBattleScene()
+        
+        public Vector3 GetMousePos()
         {
-            SceneManager.LoadScene(_loadScene);
+            return _worldPointPos;
         }
+        public void LoadBattleScene() => 
+            SceneManager.LoadScene(_loadScene);
     }
 }
 

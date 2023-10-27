@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace ArtemYakubovich
@@ -8,20 +9,27 @@ namespace ArtemYakubovich
         Table
     }
 
-    public class Tower : MonoBehaviour
+    public class Tower : MonoBehaviour, IStartable, IUpdatable
     {
         private CameraController _cameraController;
         private TowerState _towerState;
         private bool _isFindPlace;
         private Vector3 _mousePos;
-        
-        void Start()
+
+        private void Start()
         {
-            _towerState = TowerState.Table;
-            _cameraController = Camera.main.GetComponent<CameraController>();
+            OnStart();
         }
 
-        void Update()
+        public void OnStart()
+        {
+            _towerState = TowerState.Table;
+            
+            _cameraController = ServiceLocator.Instance.Get<CameraController>();
+            ServiceLocator.Instance.Get<GameController>().updatablesHolder.Registration(this);
+        }
+
+        public void EveryFrameRun()
         {
             if (_isFindPlace)
             {
@@ -38,9 +46,7 @@ namespace ArtemYakubovich
         private void OnMouseDown()
         {
             if (_towerState == TowerState.Table)
-            {
                 _isFindPlace = true;
-            }
         }
     }
 }

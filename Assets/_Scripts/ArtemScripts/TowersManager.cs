@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace ArtemYakubovich
 {
-    public class TowersManager : MonoBehaviour
+    public class TowersManager : MonoBehaviour, IStartable
     {
         [SerializeField] private Transform[] _towersPosition;
         [SerializeField] private GameObject _tower;
 
-        private void Start()
+        public void OnStart()
         {
             for (int i = 0; i < _towersPosition.Length; i++)
             {
@@ -20,5 +20,7 @@ namespace ArtemYakubovich
         {
             return _towersPosition;
         }
+
+        
     }
 }
