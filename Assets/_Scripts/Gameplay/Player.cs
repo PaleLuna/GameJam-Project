@@ -23,6 +23,4 @@ public class Player : MonoBehaviour, IFixedUpdatable, IStartable
    {
       _controllable.Move(_playerConfig.Speed);
    }
-
-   
 }
