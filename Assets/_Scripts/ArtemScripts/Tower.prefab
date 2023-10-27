@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f740a58431e14a14a9f7bfe30bf9a39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: {fileID: 0}
+  _distance: 15
+  EnemyManager: {fileID: 0}
 --- !u!54 &905217569413744573
 Rigidbody:
   m_ObjectHideFlags: 0

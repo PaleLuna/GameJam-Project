@@ -1,18 +1,20 @@
 using UnityEngine;
 
-public class SkyDome : MonoBehaviour, IStartable, IUpdatable
+namespace ArtemYakubovich
 {
-    [SerializeField] private float _speed;
     
-    public void OnStart()
+    public class SkyDome : MonoBehaviour, IStartable, IUpdatable
     {
-        ServiceLocator.Instance.Get<GameController>().updatablesHolder.Registration(this);
-    }
+        [SerializeField] private float _speed;
     
-    public void EveryFrameRun()
-    {  
-        transform.Rotate(Vector3.up, _speed * Time.deltaTime);
-    }
-
+        public void OnStart()
+        {
+            ServiceLocator.Instance.Get<GameController>().updatablesHolder.Registration(this);
+        }
     
+        public void EveryFrameRun()
+        {  
+            transform.Rotate(Vector3.up, _speed * Time.deltaTime);
+        }
+    }
 }

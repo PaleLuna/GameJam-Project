@@ -12,6 +12,8 @@ namespace ArtemYakubovich
 
     public class Tower : MonoBehaviour, IStartable, IUpdatable
     {
+        [SerializeField] private float _distance;
+        public EnemyManager EnemyManager;
         private CameraController _cameraController;
         private TowerState _towerState;
         private bool _isFindPlace;
@@ -24,7 +26,7 @@ namespace ArtemYakubovich
 
         public void OnStart()
         {
-            _towerState = TowerState.Table;
+            _towerState = TowerState.Active;
             
             _cameraController = ServiceLocator.Instance.Get<CameraController>();
             ServiceLocator.Instance.Get<GameController>().updatablesHolder.Registration(this);
@@ -44,7 +46,15 @@ namespace ArtemYakubovich
             }
             else if(_towerState == TowerState.Active)
             {
-                
+                if (EnemyManager.GetEnemy(transform.position) != null)
+                {
+                    Vector3 position = EnemyManager.GetEnemy(transform.position).transform.position;
+                    Vector3 positionXZ = new Vector3(position.x, 1f, position.z);
+                    if (Vector3.Distance(transform.position, positionXZ) < _distance)
+                    {
+                        transform.LookAt(positionXZ);
+                    }
+                }
             }
         }
 

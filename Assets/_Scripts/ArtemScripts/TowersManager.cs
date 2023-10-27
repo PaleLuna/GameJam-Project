@@ -4,6 +4,7 @@ namespace ArtemYakubovich
 {
     public class TowersManager : MonoBehaviour, IStartable
     {
+        [SerializeField] private EnemyManager _enemyManager;
         [SerializeField] private Transform[] _towersPosition;
         [SerializeField] private GameObject _tower;
 
@@ -13,6 +14,7 @@ namespace ArtemYakubovich
             {
                 GameObject tmp = Instantiate(_tower);
                 tmp.transform.position = _towersPosition[i].position;
+                tmp.transform.GetComponent<Tower>().EnemyManager = _enemyManager;
             }
         }
 
