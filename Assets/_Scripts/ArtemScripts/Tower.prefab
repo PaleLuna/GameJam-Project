@@ -46,8 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f740a58431e14a14a9f7bfe30bf9a39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towersManager: {fileID: 0}
-  _cameraController: {fileID: 0}
 --- !u!54 &905217569413744573
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -56,7 +54,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8166127759656331196}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 1e+9
   m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
