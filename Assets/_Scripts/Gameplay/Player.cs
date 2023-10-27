@@ -1,14 +1,14 @@
 using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IFixedUpdatable
+public class Player : MonoBehaviour, IFixedUpdatable, IStartable
 {
    [SerializeField] private Rigidbody _rigidbody;
    [SerializeField] private PlayerConfig _playerConfig;
 
    private IControllable _controllable;
 
-   public void Start()
+   public void OnStart()
    {
       _controllable = new RBControllable(_rigidbody);
       
@@ -20,4 +20,6 @@ public class Player : MonoBehaviour, IFixedUpdatable
    {
       _controllable.Move(_playerConfig.Speed);
    }
+
+   
 }

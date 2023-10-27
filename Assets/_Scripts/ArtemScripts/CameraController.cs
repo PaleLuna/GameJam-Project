@@ -5,6 +5,8 @@ namespace ArtemYakubovich
 {
     public class CameraController : MonoBehaviour
     {
+        [SerializeField] private int _loadScene; 
+        
         private Camera _camera;
         private Vector3 _worldPointPos;
         [SerializeField] private LayerMask _layerMaskCurrent;
@@ -32,7 +34,7 @@ namespace ArtemYakubovich
 
         public void LoadBattleScene()
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(_loadScene);
         }
     }
 }

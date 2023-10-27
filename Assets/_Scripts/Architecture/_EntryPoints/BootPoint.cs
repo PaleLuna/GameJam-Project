@@ -9,10 +9,9 @@ public class BootPoint : MonoBehaviour
 {
     private const int NEXT_SCENE = 1;
 
-    [SerializeField] private GameObject _dontDestroyObject;
-
     private IEnumerator Start()
     {
+        GameObject _dontDestroyObject = new GameObject("DontDestroy");
         DontDestroyOnLoad(_dontDestroyObject);
 
         yield return null;

@@ -15,7 +15,7 @@ public class Singletone<T> : MonoBehaviour where T : Component
             if (!_instance)
             {
                 GameObject gObj = GameObject.Find("DontDestroy");
-                _instance = gObj.AddComponent<T>();
+                _instance = gObj ?  gObj.AddComponent<T>() : null;
             }
         }
 

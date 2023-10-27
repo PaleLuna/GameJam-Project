@@ -1,15 +1,34 @@
 using System.Collections;
-using _Scripts.Gameplay.Input_System;
 using UnityEngine;
 
 public class GamePoint : MonoBehaviour
 {
+    private ServiceLocator _serviceLocator;
+
+    [SerializeField, RequireInterface(typeof(IStartable))]
+    private MonoBehaviour[] _startables;
+    
     private IEnumerator Start()
     {
-        ServiceLocator serviceLocator = ServiceLocator.Instance;
+        _serviceLocator = ServiceLocator.Instance;
 
-        serviceLocator.Registarion(new InputService(new PCInput()));
-
+        if(_serviceLocator)
+            GameSceneBoot();
+        else
+            GameBootStart();
         yield return null;
+    }
+
+    private void GameBootStart()
+    {
+        this.gameObject.AddComponent<BootPoint>();
+    }
+
+    private void GameSceneBoot()
+    {
+        _serviceLocator.Registarion(new InputService(new PCInput()));
+
+        foreach (IStartable startable in _startables)
+            startable.OnStart();
     }
 }
