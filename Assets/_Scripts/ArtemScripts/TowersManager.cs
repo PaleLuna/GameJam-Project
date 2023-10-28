@@ -17,12 +17,6 @@ namespace ArtemYakubovich
                 tmp.transform.GetComponent<Tower>().EnemyManager = _enemyManager;
             }
         }
-
-        public Transform[] GetPositions()
-        {
-            return _towersPosition;
-        }
-
-        
+        public Transform[] GetPositions() => _towersPosition;
     }
 }

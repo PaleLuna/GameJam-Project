@@ -51,16 +51,16 @@ namespace ArtemYakubovich
             }
             else if(_towerState == TowerState.Active)
             {
-                if (EnemyManager.GetEnemy(transform.position) != null)
+                if (!EnemyManager.GetEnemy(transform.position)) return;
+                
+                Enemy enemy = EnemyManager.GetEnemy(transform.position);
+                Vector3 position = enemy.transform.position;
+                Vector3 positionXZ = new Vector3(position.x, 1f, position.z);
+                
+                if (Vector3.Distance(transform.position, positionXZ) < _distance)
                 {
-                    Enemy enemy = EnemyManager.GetEnemy(transform.position);
-                    Vector3 position = enemy.transform.position;
-                    Vector3 positionXZ = new Vector3(position.x, 1f, position.z);
-                    if (Vector3.Distance(transform.position, positionXZ) < _distance)
-                    {
-                        transform.LookAt(positionXZ);
-                        TryToShoot(enemy);
-                    }
+                    transform.LookAt(positionXZ);
+                    TryToShoot(enemy);
                 }
             }
         }
