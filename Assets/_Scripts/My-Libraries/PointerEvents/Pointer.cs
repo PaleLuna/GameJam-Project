@@ -39,10 +39,12 @@ namespace PaleLuna.PointEvents
 
         private void MoveMask()
         {
-            Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, _maskTransform.position.z);
-            Vector3 pos = _cameraController.Camera.ScreenToWorldPoint(mousePos);
+            Vector3 pointerPosition = Input.mousePosition;
 
-            pos.z = _maskTransform.position.z;
+            pointerPosition.z = 1F;
+
+            Vector3 pos = _cameraController.Camera.ScreenToWorldPoint(pointerPosition);
+
             _maskTransform.position = pos;
         }
 
