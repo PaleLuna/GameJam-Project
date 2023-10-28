@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace ArtemYakubovich
 {
-    
     public class SkyDome : MonoBehaviour, IStartable, IUpdatable
     {
         [SerializeField] private float _speed;
