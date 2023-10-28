@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 8485097205233050506}
   - component: {fileID: 3198117239891182808}
   - component: {fileID: 905217569413744573}
+  - component: {fileID: 95815365965845348}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -185,6 +186,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!65 &95815365965845348
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166127759656331196}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2, z: 3}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &9214162514891411571
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +351,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d38ed6074b508a34fa9073d02a8300f3,
         type: 3}
       propertyPath: m_Name
-      value: e161b0ac7f956d3b
+      value: TowerModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

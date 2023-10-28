@@ -1,40 +1,26 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ArtemYakubovich
 {
-    public class Bullet : MonoBehaviour, IStartable, IUpdatable
+    public class Bullet : MonoBehaviour, IUpdatable
     {
         [SerializeField] private Enemy _target;
         [SerializeField] private float _speed;
 
-        public void SetTarget(Enemy enemy)
-        {
+        public void SetTarget(Enemy enemy) => 
             _target = enemy;
-        }
-        
-        private void OnTriggerEnter(Collider other)
-        {
+
+        private void OnTriggerEnter(Collider other) => 
             Destroy(gameObject);
-        }
 
-        public void OnStart()
-        {
+        private void Start() => 
             ServiceLocator.Instance.Get<GameController>().updatablesHolder.Registration(this);
-        }
 
-        public void EveryFrameRun()
-        {
-            
-        }
-
-
-        private void Update()
-        {
+        public void EveryFrameRun() => 
             transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
-        }
-    }
 
+        private void OnDestroy() => 
+            ServiceLocator.Instance?.Get<GameController>()?.updatablesHolder?.UnRegistration(this);
+    }
 }
