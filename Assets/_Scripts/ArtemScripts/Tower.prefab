@@ -154,6 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distance: 15
+  _timerForShoot: 1
+  _bullet: {fileID: 6363138497165489096, guid: 032eaccdb03471c4ba1f464ba8dc6c3f, type: 3}
+  _shootPosition: {fileID: 3517052521140923757}
   EnemyManager: {fileID: 0}
 --- !u!54 &905217569413744573
 Rigidbody:
@@ -194,7 +197,7 @@ GameObject:
   - component: {fileID: 5123524489888218104}
   - component: {fileID: 679847176523783522}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: ShootPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

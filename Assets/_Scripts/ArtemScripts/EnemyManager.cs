@@ -8,16 +8,6 @@ namespace ArtemYakubovich
     {
         [SerializeField] private Enemy[] _enemies;
 
-        void Start()
-        {
-
-        }
-
-        void Update()
-        {
-
-        }
-
         public Enemy GetEnemy(Vector3 point)
         {
             float minDistance = Mathf.Infinity;

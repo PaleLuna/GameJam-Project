@@ -13,12 +13,17 @@ namespace ArtemYakubovich
     public class Tower : MonoBehaviour, IStartable, IUpdatable
     {
         [SerializeField] private float _distance;
+        [SerializeField] private float _timerForShoot;
+        [SerializeField] private Bullet _bullet;
+        [SerializeField] private Transform _shootPosition;
+        
+        private float _timer = 0;
         public EnemyManager EnemyManager;
         private CameraController _cameraController;
         private TowerState _towerState;
         private bool _isFindPlace;
         private Vector3 _mousePos;
-
+        
         private void Start()
         {
             OnStart();
@@ -48,11 +53,13 @@ namespace ArtemYakubovich
             {
                 if (EnemyManager.GetEnemy(transform.position) != null)
                 {
-                    Vector3 position = EnemyManager.GetEnemy(transform.position).transform.position;
+                    Enemy enemy = EnemyManager.GetEnemy(transform.position);
+                    Vector3 position = enemy.transform.position;
                     Vector3 positionXZ = new Vector3(position.x, 1f, position.z);
                     if (Vector3.Distance(transform.position, positionXZ) < _distance)
                     {
                         transform.LookAt(positionXZ);
+                        TryToShoot(enemy);
                     }
                 }
             }
@@ -62,6 +69,17 @@ namespace ArtemYakubovich
         {
             if (_towerState == TowerState.Table)
                 _isFindPlace = true;
+        }
+
+        private void TryToShoot(Enemy enemy)
+        {
+            _timer += Time.deltaTime;
+            if (_timer > _timerForShoot)
+            {
+                _timer = 0;
+                Bullet tmpBullet = Instantiate(_bullet, _shootPosition.position, Quaternion.identity);
+                tmpBullet.SetTarget(enemy);
+            }
         }
     }
 }
