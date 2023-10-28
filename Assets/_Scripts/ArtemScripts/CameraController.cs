@@ -8,10 +8,10 @@ namespace ArtemYakubovich
         [SerializeField] private int _loadScene; 
         [SerializeField] private Camera _camera;
         [SerializeField] private LayerMask _layerMaskCurrent;
+
+        public Camera Camera => _camera;
         
         private Vector3 _worldPointPos;
-
-
 
         public void OnStart()
         {

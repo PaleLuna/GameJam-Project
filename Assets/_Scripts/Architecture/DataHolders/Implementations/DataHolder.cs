@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
 public class DataHolder<T> : IDataHolder<T>
 {
     private const int DEFAULT_CAPACITY = 10;
@@ -10,7 +12,7 @@ public class DataHolder<T> : IDataHolder<T>
     public UnityEvent<T> OnItemAdded => OnItemAdded;
 
     
-    private List<T> _itemsList;
+    [SerializeReference] private List<T> _itemsList;
 
     public DataHolder(int startCapacity = 0)
     {
