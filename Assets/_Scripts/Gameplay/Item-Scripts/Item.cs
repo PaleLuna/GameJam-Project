@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public abstract class Item : MonoBehaviour, ICollectable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private ItemDescription _description;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public ItemDescription description => _description;
+    
+    public abstract void Collect(Action action = null);
 }
