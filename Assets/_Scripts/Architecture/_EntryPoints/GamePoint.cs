@@ -27,6 +27,7 @@ public class GamePoint : MonoBehaviour
     private void GameSceneBoot()
     {
         _serviceLocator.Registarion(new InputService(new PCInput()));
+        _serviceLocator.Registarion(new GameResources());
 
         foreach (IStartable startable in _startables)
             startable.OnStart();

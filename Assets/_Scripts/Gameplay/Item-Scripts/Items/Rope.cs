@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Woods : Item
+public class Rope : Item
 {
     public override void Collect(Action action = null)
     {

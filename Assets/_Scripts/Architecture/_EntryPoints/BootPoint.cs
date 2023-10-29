@@ -17,6 +17,7 @@ public class BootPoint : MonoBehaviour
         yield return null;
 
         ServiceLocator serviceLocator = _dontDestroyObject.AddComponent<ServiceLocator>();
+
         GameController gameController = _dontDestroyObject.AddComponent<GameController>();
 
         yield return new WaitForEndOfFrame();

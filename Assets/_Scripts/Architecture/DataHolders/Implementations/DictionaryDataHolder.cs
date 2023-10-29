@@ -13,7 +13,7 @@ public class DictionaryDataHolder<T> : IUniqDataHolder<T>
     {
         Type type = item.GetType();
 
-        if (_itemsMap.ContainsKey(type))
+        if (_itemsMap.ContainsKey(typeof(TP)))
             throw new Exception($"Cannot add item of type {type}. This type already exists");
 
         _itemsMap[type] = item;
