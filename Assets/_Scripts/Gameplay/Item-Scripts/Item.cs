@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Item : MonoBehaviour, ICollectable
 {
     [Header("Description")]
-    [SerializeField] private ItemDescription _description;
+    [SerializeField] protected ItemDescription _description;
 
     public ItemDescription description => _description;
     

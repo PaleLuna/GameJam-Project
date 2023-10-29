@@ -15,8 +15,16 @@ public class InputService : IUpdatable
     public void EveryFrameRun()
     {
         SendDirection();
+        SendInteract();
     }
 
     private void SendDirection() => 
         GameplayInputEventBus.OnGetDirection(_inputHandler.GetDirection());
+
+    private void SendInteract()
+    {
+        if(_inputHandler.Interact())
+            GameplayInputEventBus.OnInteract();
+    }
+        
 }
