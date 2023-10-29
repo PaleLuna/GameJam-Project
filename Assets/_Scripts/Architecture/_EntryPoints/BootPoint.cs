@@ -7,7 +7,7 @@ using Object = System.Object;
 
 public class BootPoint : MonoBehaviour
 {
-    private const int NEXT_SCENE = 2;
+    private const int NEXT_SCENE = 1;
 
     private IEnumerator Start()
     {

@@ -4408,6 +4408,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks
       objectReference: {fileID: 0}
+    - target: {fileID: 803461598558817396, guid: 6c2f1e1465e5a7d458ae6241eef195d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820921325716966515, guid: 6c2f1e1465e5a7d458ae6241eef195d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2672773831175625540, guid: 6c2f1e1465e5a7d458ae6241eef195d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4457,6 +4467,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070523543930532902, guid: 6c2f1e1465e5a7d458ae6241eef195d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650595544349712966, guid: 6c2f1e1465e5a7d458ae6241eef195d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
