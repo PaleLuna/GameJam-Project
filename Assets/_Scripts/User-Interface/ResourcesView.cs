@@ -46,11 +46,11 @@ public class ResourcesView : MonoBehaviour, IStartable
     }
     private void SetRockCount()
     {
-        _woodCountText.text = Convert.ToString(_gameResources.CheckCount<Rock>());
+        _stoneCountText.text = Convert.ToString(_gameResources.CheckCount<Rock>());
     }
     private void SetRopeCount()
     {
-        _woodCountText.text = Convert.ToString(_gameResources.CheckCount<Rope>());
+        _ropeCountText.text = Convert.ToString(_gameResources.CheckCount<Rope>());
     }
     
 }
