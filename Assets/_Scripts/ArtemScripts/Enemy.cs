@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 namespace ArtemYakubovich
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : MonoBehaviour, IDamagable
     {
         [SerializeField] private NavMeshAgent _navMeshAgent;
         [SerializeField] private int _health;
@@ -20,7 +20,16 @@ namespace ArtemYakubovich
             _target = target;
             _navMeshAgent.destination = target.position;
         }
-        
 
+
+        public void GetDamage(int damage)
+        {
+            _health = Math.Max(_health - damage, 0);
+            
+            if(_health != 0) return;
+            
+            GameplayEventBus.OnEnemyDeath(this);
+            gameObject.SetActive(false);
+        }
     }
 }
